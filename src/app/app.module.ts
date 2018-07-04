@@ -6,14 +6,12 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginComponent } from './login/login.component';
 import { APP_ROUTES } from './app.routes';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    FormsModule,
-    ReactiveFormsModule
+    LoginComponent
   ],
   imports: [
     BrowserModule,

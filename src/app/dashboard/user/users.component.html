@@ -2,22 +2,22 @@
 <div class="row">
   <form 
     ngNativeValidate 
-    [formGroup]="form" (ngSubmit)="registerUser()"
+    [formGroup]="formUser" (ngSubmit)="registerUser()"
       class="ui form" >
     <h4 class="ui dividing header"> - Usuarios - </h4>
 
     <div class="field">
       <div class="two fields">
         <div class="field">
-          <div class="ui left icon input">            
-            <input type="text" name="name" placeholder="Nombres completos">
+          <div class="ui left icon input">     
+            <input type="text" formControlName="name" name="name" placeholder="Nombres completos">
             <i class="users icon"></i>
           </div>
         </div>  
 
         <div class="field">
           <div class="ui left icon input">                 
-            <input type="text" name="lastname" placeholder="Apellidos Completos ">
+            <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos ">
             <i class="users icon"></i>
           </div>
         </div>
@@ -26,9 +26,9 @@
 
     <div class="field">
       <div class="two fields">
-        <div class="field">            
-            <div class="ui selection dropdown">                
-                <input type="hidden" name="genre">
+        <div class="field">
+            <div class="ui selection dropdown" >                
+                <input type="hidden" formControlName="genre" name="genre">
                 <i class="dropdown icon"></i>
                 <div class="default text">Genero: Seleccione una opción</div>
                 <div class="menu">
@@ -41,7 +41,7 @@
         <div class="field">        
           <div class="ui right labeled left icon input">    
             <i class="tags icon"></i>        
-            <input type="text" name="born" placeholder="Fecha de Nacimiento">
+            <input type="text" formControlName="born" name="born" placeholder="Fecha de Nacimiento">
             <button type="button" class="ui tag label">
                 años
             </button>
@@ -54,42 +54,38 @@
       <div class="two fields">
           <div class="field">   
               <div class="ui left icon input">                           
-                <input type="email" name="email" placeholder="Email">
+                <input type="email" formControlName="email" name="email" placeholder="Email">
                 <i class="users icon"></i>
               </div>
           </div>
           <div class="field">   
               <div class="ui left icon input">                        
-                <input type="password" name="password" placeholder="Contraseña">
+                <input type="password" formControlName="password" name="password" placeholder="Contraseña">
                 <i class="low vision icon"></i>
               </div>
           </div>
       </div>
     </div>
 
-    <div class="field">        
-        <div class="ui selection dropdown">
-            <input type="hidden" name="genre">
-            <i class="dropdown icon"></i>
-            <div class="default text">Rol: Seleccione una opción</div>
-            <div class="menu">
-                <div class="item" data-value="administrator">Administrador</div>
-                <div class="item" data-value="teacher">Profesor</div>
-            </div>
-        </div>
+    <div class="field">                
+      <select forControlName="rol" name="rol">
+        <option value="">Seleccione una opción </option>
+        <option value="administrator">Administrador</option>
+        <option value="teacher">Instructor</option>
+      </select>        
     </div>
 
     <!-- Términos y Condiciones -->
     <div class="field">
       <div class="ui slider checkbox">
-        <input type="checkbox" tabindex="0" class="hidden">
+        <input type="checkbox" tabindex="0" class="hidden" formControlName="accept" name="accept">
         <label>Acepto términos y condiciones </label>
       </div>
     </div>
 
-   
-
     <button class="ui button" type="submit">Submit</button>
   
-    </form>
+  </form>
+
+  {{ formUser.value | json }}
 </div>

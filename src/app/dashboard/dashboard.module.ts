@@ -13,8 +13,8 @@ import { SharedModule } from '../shared/share.module';
 import { IndexComponent } from './index/index.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 
@@ -36,9 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         IndexComponent
      ],
     exports: [
-        DashboardComponent,
-        FormsModule,
-        ReactiveFormsModule
+        DashboardComponent
      ]
 
 })
