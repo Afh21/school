@@ -14,6 +14,9 @@ export class UsersComponent implements OnInit {
 
   formUser: FormGroup;
 
+  test: Array<any> = [ { code: 'masculino', name: 'Masculino'}, { code: 'femenino', name: 'Femenino' } ];
+  rol:   Array<any> = [ { code: 'administrator', name: 'Administrador'}, { code: 'teacher', name: 'Instructor'} ];
+
   constructor(private _users: UserService,
               private router: Router) { }
 
@@ -35,10 +38,13 @@ export class UsersComponent implements OnInit {
 
 
   registerUser() {
-    console.log(this.formUser.value);
+
     if (!this.formUser.valid) {
+        swal('Bad Job', '¡Debes aceptar las condiciones!', 'error');
       return;
     }
+
+
   }
 
   agregarUsuario( usuario: any ) {

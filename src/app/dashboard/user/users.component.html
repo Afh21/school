@@ -10,14 +10,14 @@
       <div class="two fields">
         <div class="field">
           <div class="ui left icon input">     
-            <input type="text" formControlName="name" name="name" placeholder="Nombres completos">
-            <i class="users icon"></i>
+            <input type="text" formControlName="name" name="name" placeholder="Nombres completos" required>
+            <i class="users icon"></i>            
           </div>
         </div>  
 
         <div class="field">
-          <div class="ui left icon input">                 
-            <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos ">
+          <div class="ui left icon input" ngClass="{'error': formUser.lastname}">                 
+             <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " required>
             <i class="users icon"></i>
           </div>
         </div>
@@ -27,21 +27,16 @@
     <div class="field">
       <div class="two fields">
         <div class="field">
-            <div class="ui selection dropdown" >                
-                <input type="hidden" formControlName="genre" name="genre">
-                <i class="dropdown icon"></i>
-                <div class="default text">Genero: Seleccione una opción</div>
-                <div class="menu">
-                    <div class="item" data-value="m">Masculino</div>
-                    <div class="item" data-value="f">Femenino</div>
-                </div>
-            </div>
+            <select class="ui search dropdown" formControlName="genre" name="genre"> 
+              <option value="">Genero</option>
+              <option *ngFor="let genres of test" [ngValue]="genres.code">{{genres.name}}</option>
+            </select>
         </div>
       
         <div class="field">        
           <div class="ui right labeled left icon input">    
             <i class="tags icon"></i>        
-            <input type="text" formControlName="born" name="born" placeholder="Fecha de Nacimiento">
+            <input type="date" formControlName="born" name="born" placeholder="Fecha de Nacimiento">
             <button type="button" class="ui tag label">
                 años
             </button>
@@ -68,10 +63,9 @@
     </div>
 
     <div class="field">                
-      <select forControlName="rol" name="rol">
+      <select class="ui search dropdown" formControlName="rol" name="rol">
         <option value="">Seleccione una opción </option>
-        <option value="administrator">Administrador</option>
-        <option value="teacher">Instructor</option>
+        <option *ngFor="let roles of rol" [ngValue]="roles.code"> {{roles.name}} </option>
       </select>        
     </div>
 
