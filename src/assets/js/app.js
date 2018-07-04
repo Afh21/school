@@ -4,6 +4,7 @@ $().ready(()=>{
     $('.ui.checkbox').checkbox();
 
     // Dropdown
-    $('.selection.dropdown').dropdown();
+    $('.search.dropdown').dropdown();
+    
 
 })

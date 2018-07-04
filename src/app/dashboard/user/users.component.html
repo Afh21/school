@@ -1,19 +1,23 @@
 <br><br>
 <div class="row">
-  <form class="ui form">
+  <form 
+    ngNativeValidate 
+    [formGroup]="formUser" (ngSubmit)="registerUser()"
+      class="ui form" >
+    <h4 class="ui dividing header"> - Usuarios - </h4>
 
     <div class="field">
       <div class="two fields">
         <div class="field">
-          <div class="ui left icon input">            
-            <input type="text" name="name" placeholder="Nombres completos">
-            <i class="users icon"></i>
+          <div class="ui left icon input">     
+            <input type="text" formControlName="name" name="name" placeholder="Nombres completos" required>
+            <i class="users icon"></i>            
           </div>
         </div>  
 
         <div class="field">
-          <div class="ui left icon input">                 
-            <input type="text" name="lastname" placeholder="Apellidos Completos ">
+          <div class="ui left icon input" ngClass="{'error': formUser.lastname}">                 
+             <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " required>
             <i class="users icon"></i>
           </div>
         </div>
@@ -23,24 +27,18 @@
     <div class="field">
       <div class="two fields">
         <div class="field">
-            <label>Genero</label>
-            <div class="ui selection dropdown">
-                <input type="hidden" name="genre">
-                <i class="dropdown icon"></i>
-                <div class="default text">Seleccione una opción</div>
-                <div class="menu">
-                    <div class="item" data-value="m">Masculino</div>
-                    <div class="item" data-value="f">Femenino</div>
-                </div>
-            </div>
+            <select class="ui search dropdown" formControlName="genre" name="genre"> 
+              <option value="">Genero</option>
+              <option *ngFor="let genres of test" [ngValue]="genres.code">{{genres.name}}</option>
+            </select>
         </div>
       
         <div class="field">        
           <div class="ui right labeled left icon input">    
             <i class="tags icon"></i>        
-            <input type="text" name="born" placeholder="First Name">
+            <input type="date" formControlName="born" name="born" placeholder="Fecha de Nacimiento">
             <button type="button" class="ui tag label">
-                Add Tag
+                años
             </button>
           </div>
         </div>
@@ -49,41 +47,39 @@
     
     <div class="field">
       <div class="two fields">
-          <div class="field">        
-              <label>Correo Electrónico:</label>
-              <input type="email" name="email" placeholder="Email">
+          <div class="field">   
+              <div class="ui left icon input">                           
+                <input type="email" formControlName="email" name="email" placeholder="Email">
+                <i class="users icon"></i>
+              </div>
           </div>
-          <div class="field">        
-              <label>Contraseña:</label>
-              <input type="password" name="password" placeholder="Contraseña">
+          <div class="field">   
+              <div class="ui left icon input">                        
+                <input type="password" formControlName="password" name="password" placeholder="Contraseña">
+                <i class="low vision icon"></i>
+              </div>
           </div>
       </div>
     </div>
 
-    <div class="field">
-        <label>Rol</label>
-        <div class="ui selection dropdown">
-            <input type="hidden" name="genre">
-            <i class="dropdown icon"></i>
-            <div class="default text">Seleccione una opción</div>
-            <div class="menu">
-                <div class="item" data-value="administrator">Administrador</div>
-                <div class="item" data-value="teacher">Profesor</div>
-            </div>
-        </div>
+    <div class="field">                
+      <select class="ui search dropdown" formControlName="rol" name="rol">
+        <option value="">Seleccione una opción </option>
+        <option *ngFor="let roles of rol" [ngValue]="roles.code"> {{roles.name}} </option>
+      </select>        
     </div>
 
     <!-- Términos y Condiciones -->
     <div class="field">
       <div class="ui slider checkbox">
-        <input type="checkbox" tabindex="0" class="hidden">
-        <label>I agree to the Terms and Conditions</label>
+        <input type="checkbox" tabindex="0" class="hidden" formControlName="accept" name="accept">
+        <label>Acepto términos y condiciones </label>
       </div>
     </div>
 
-   
-
     <button class="ui button" type="submit">Submit</button>
   
-    </form>
+  </form>
+
+  {{ formUser.value | json }}
 </div>
