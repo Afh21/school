@@ -1,3 +1,89 @@
-<p>
-  user works!
-</p>
+<br><br>
+<div class="row">
+  <form class="ui form">
+
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <div class="ui left icon input">            
+            <input type="text" name="name" placeholder="Nombres completos">
+            <i class="users icon"></i>
+          </div>
+        </div>  
+
+        <div class="field">
+          <div class="ui left icon input">                 
+            <input type="text" name="lastname" placeholder="Apellidos Completos ">
+            <i class="users icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+            <label>Genero</label>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="genre">
+                <i class="dropdown icon"></i>
+                <div class="default text">Seleccione una opción</div>
+                <div class="menu">
+                    <div class="item" data-value="m">Masculino</div>
+                    <div class="item" data-value="f">Femenino</div>
+                </div>
+            </div>
+        </div>
+      
+        <div class="field">        
+          <div class="ui right labeled left icon input">    
+            <i class="tags icon"></i>        
+            <input type="text" name="born" placeholder="First Name">
+            <button type="button" class="ui tag label">
+                Add Tag
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="field">
+      <div class="two fields">
+          <div class="field">        
+              <label>Correo Electrónico:</label>
+              <input type="email" name="email" placeholder="Email">
+          </div>
+          <div class="field">        
+              <label>Contraseña:</label>
+              <input type="password" name="password" placeholder="Contraseña">
+          </div>
+      </div>
+    </div>
+
+    <div class="field">
+        <label>Rol</label>
+        <div class="ui selection dropdown">
+            <input type="hidden" name="genre">
+            <i class="dropdown icon"></i>
+            <div class="default text">Seleccione una opción</div>
+            <div class="menu">
+                <div class="item" data-value="administrator">Administrador</div>
+                <div class="item" data-value="teacher">Profesor</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Términos y Condiciones -->
+    <div class="field">
+      <div class="ui slider checkbox">
+        <input type="checkbox" tabindex="0" class="hidden">
+        <label>I agree to the Terms and Conditions</label>
+      </div>
+    </div>
+
+   
+
+    <button class="ui button" type="submit">Submit</button>
+  
+    </form>
+</div>
