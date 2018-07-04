@@ -6,21 +6,21 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginComponent } from './login/login.component';
 import { APP_ROUTES } from './app.routes';
 
-import {HttpClientModule}  from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,
     DashboardModule,
-    HttpClientModule,
     APP_ROUTES
   ],
   providers: [
-
   ],
   bootstrap: [ AppComponent ]
 })
