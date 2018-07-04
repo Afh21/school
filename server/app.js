@@ -5,8 +5,6 @@ var bodyParser  = require('body-parser')
 var morgan      = require('morgan')
 var app         = express()
 
-
-
 // Import Routes
 const userRoutes    = require('./routes/user-route')
 
