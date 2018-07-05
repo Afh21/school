@@ -32,6 +32,8 @@ export class UsersComponent implements OnInit {
         rol:      new FormControl(null, Validators.required),
         accept:   new FormControl(false, Validators.required),
       });
+
+      this._userService.getUsers();
   }
 
 
