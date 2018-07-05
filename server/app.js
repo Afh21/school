@@ -20,7 +20,7 @@ app.use(cors({
     credentials: true }))
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 
 // Import Routes
 const loginRoutes    = require('./routes/login')

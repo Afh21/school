@@ -22,21 +22,20 @@ export class LoginComponent implements OnInit {
 
     const badCredentialsError = () => swal('Ups! :C ', 'Correo o contraseña incorrecta.', 'error');
 
-    if (!this.formLogin.valid) {
-      badCredentialsError();
-    return;
-
-  }
-
-  this._login.getTokenWithLogin(this.formLogin.value).subscribe( data => {
-    console.log(data);
-    if(!data['Ok']) {
+    if (this.formLogin.valid) {
+      this._login.getTokenWithLogin(this.formLogin.value).subscribe( data => {
+        if(data['Ok'] ) {
+          this.router.navigate(['/dashboard'])
+        } else {
+          badCredentialsError();
+          return;
+        }
+      })
+      
+    }  else {
       badCredentialsError();
       return;
-    } else {
-      this.router.navigate(['/dashboard'])
     }
-  })
     
   }
 
