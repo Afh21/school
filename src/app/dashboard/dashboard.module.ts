@@ -36,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
         IndexComponent
      ],
     exports: [
-        DashboardComponent
+        DashboardComponent,
+        FormsModule,
+        ReactiveFormsModule
      ]
 
 })

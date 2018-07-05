@@ -14,15 +14,24 @@ module.exports = {
                 if ( !bcrypt.compareSync( body.password, userDB.password ) ) res.json({ Ok: false, message: 'Ups! It had occured an error password - Login POST ', error: err});
                 
                 userDB.password = ':), oh! esta es mi contraseña :D'
-
-                let token = jwt.sign({user: userDB}, 'd-u-q-u-e-.-o-r-d-u-z', {expiresIn: 18000})
+                
+                if (userDB) {
+                    let token = jwt.sign({user: userDB}, 'd-u-q-u-e-.-o-r-d-u-z', {expiresIn: 18000})
     
-                res.status(200).json({
-                    Ok:             true,
-                    message:        "Congratulations, Login - POST",
-                    user:           userDB,
-                    token:          token
-                })
+                    res.status(200).json({
+                        Ok:             true,
+                        message:        "Congratulations, Login - POST",
+                        user:           userDB,
+                        token:          token
+                    })
+                } else {
+                    res.status(500).json({
+                        Ok:             false,
+                        message:        "Email no found, Login - POST",
+                        
+                    })
+                }
+                
     
             })                       
 

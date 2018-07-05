@@ -11,6 +11,7 @@ import swal from 'sweetalert2';
   templateUrl: './users.component.html',
   styles: []
 })
+
 export class UsersComponent implements OnInit {
 
   formUser: FormGroup;
@@ -67,6 +68,12 @@ export class UsersComponent implements OnInit {
     });
 
 
+  }
+
+
+  agregarUsuario( usuario: any ) {
+    this._userService.createUser( usuario );
+    this.router.navigate(['/dashboard']);
   }
 
 }

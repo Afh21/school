@@ -10,14 +10,14 @@
       <div class="two fields">
         <div class="field">
           <div class="ui left icon input">     
-            <input type="text" formControlName="name" name="name" placeholder="Nombres completos" >
+            <input type="text" formControlName="name" name="name" placeholder="Nombres completos" required>
             <i class="users icon"></i>            
           </div>
         </div>  
 
         <div class="field">
-          <div class="ui left icon input" ngClass="{'error': formUser.controls.lastname.invalid}">                 
-             <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " >
+          <div class="ui left icon input" ngClass="{'error': formUser.lastname}">                 
+             <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " required>
             <i class="users icon"></i>
           </div>
         </div>
@@ -71,7 +71,7 @@
 
     <!-- Términos y Condiciones -->
     <div class="field">
-      <div class="ui slider checkbox">
+      <div class="ui checkbox slider">
         <input type="checkbox" tabindex="0" class="hidden" formControlName="accept" name="accept">
         <label>Acepto términos y condiciones </label>
       </div>
