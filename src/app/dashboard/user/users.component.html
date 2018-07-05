@@ -1,28 +1,30 @@
 <br><br>
 <div class="row">
 
-<<<<<<< HEAD
+
+  <form 
+    ngNativeValidate 
+    [formGroup]="formUser" (ngSubmit)="registerUser()"
+      class="ui form" >
+    <h4 class="ui dividing header"> - Usuarios - </h4>
+
     <div class="field">
       <div class="two fields">
         <div class="field">
           <div class="ui left icon input">     
-
             <input type="text" formControlName="name" name="name" placeholder="Nombres completos" required>
-
             <i class="users icon"></i>            
           </div>
         </div>  
 
         <div class="field">
-
-          <div class="ui left icon input" ngClass="{'error': formUser.controls.lastname.invalid}">                 
-             <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " >
+          <div class="ui left icon input" ngClass="{'error': formUser.lastname}">                 
+             <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " required>
             <i class="users icon"></i>
           </div>
         </div>
       </div>
     </div>
-=======
     <table class="ui celled table">
         <thead>
           <tr>
@@ -54,7 +56,6 @@
       </table>
 
       <button class="ui positive basic button" type="button" id="openModalCreateUser" > Ok, Crear un Usuario! </button>
->>>>>>> 21e8c9d6c9d3ffbf150172684c0d3f7e5573a3aa
 
       <div class="ui modal">
           <div class="ui icon header">
@@ -106,7 +107,41 @@
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
+
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+            <select class="ui search dropdown" formControlName="genre" name="genre"> 
+              <option value="">Genero</option>
+              <option *ngFor="let genres of test" [ngValue]="genres.code">{{genres.name}}</option>
+            </select>
+        </div>
+      
+        <div class="field">        
+          <div class="ui right labeled left icon input">    
+            <i class="tags icon"></i>        
+            <input type="date" formControlName="born" name="born" placeholder="Fecha de Nacimiento">
+            <button type="button" class="ui tag label">
+                años
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="field">
+      <div class="two fields">
+          <div class="field">   
+              <div class="ui left icon input">                           
+                <input type="email" formControlName="email" name="email" placeholder="Email">
+                <i class="users icon"></i>
+              </div>
+          </div>
+          <div class="field">   
+              <div class="ui left icon input">                        
+                <input type="password" formControlName="password" name="password" placeholder="Contraseña">
+                <i class="low vision icon"></i>
+              </div>
           </div>
       </div>
     </div>
@@ -120,12 +155,11 @@
 
     <!-- Términos y Condiciones -->
     <div class="field">
-      <div class="ui slider checkbox">
+      <div class="ui checkbox slider">
         <input type="checkbox" tabindex="0" class="hidden" formControlName="accept" name="accept">
         <label>Acepto términos y condiciones </label>
       </div>
     </div>
-
 
     <button class="ui button" type="submit" > Ok, Registrar </button>
   
@@ -133,38 +167,6 @@
   
   <br>
   {{ formUser.value | json }}
-=======
-              
-              <div class="field">
-                <div class="two fields">
-                    <div class="field">   
-                        <div class="ui left icon input">                           
-                          <input type="email" formControlName="email" name="email" placeholder="Email">
-                          <i class="users icon"></i>
-                        </div>
-                    </div>
-                    <div class="field">   
-                        <div class="ui left icon input">                        
-                          <input type="password" formControlName="password" name="password" placeholder="Contraseña">
-                          <i class="low vision icon"></i>
-                        </div>
-                    </div>
-                </div>
-              </div>
-          
-              <div class="field">                
-                <select class="ui search dropdown" formControlName="rol" name="rol">
-                  <option value="">Seleccione una opción </option>
-                  <option *ngFor="let roles of rol" [ngValue]="roles.code"> {{roles.name}} </option>
-                </select>        
-              </div>              
-          
-              <button class="ui button" type="submit" id="closeModalCreateUser"> Ok, Registrar </button>
-            
-            </form>
-          </div>          
-        </div>
->>>>>>> 21e8c9d6c9d3ffbf150172684c0d3f7e5573a3aa
 
 
 </div>

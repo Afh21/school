@@ -1,33 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
-import { UserService } from '../../services/user.service';
-
 import { Router } from '@angular/router';
 import { UserModel } from './model/user.model';
 
 import { UserService } from '../../services/user.service';
-
 import swal from 'sweetalert2';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styles: []
 })
+
 export class UsersComponent implements OnInit {
 
   formUser: FormGroup;
 
   test: Array<any> = [ { code: 'm', name: 'Masculino'}, { code: 'f', name: 'Femenino' } ];
-<<<<<<< HEAD
-
-  rol:   Array<any> = [ { code: 'administrator', name: 'Administrador'}, { code: 'teacher', name: 'Instructor'} ];
-=======
   rol:  Array<any> = [ { code: 'administrator', name: 'Administrador'}, { code: 'teacher', name: 'Instructor'} ];
   user: Array<any>;
->>>>>>> 21e8c9d6c9d3ffbf150172684c0d3f7e5573a3aa
 
   constructor(private _userService: UserService,
               private router: Router) {
@@ -37,33 +28,23 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
 
     this.formUser = new FormGroup({
-
         name:     new FormControl(null, Validators.required),
         lastname: new FormControl(null, Validators.required),
         genre:    new FormControl(null, Validators.required),
         born:     new FormControl(null, Validators.required),
         email:    new FormControl(null, Validators.required),
         password: new FormControl(null, Validators.required),
-<<<<<<< HEAD
-        rol:      new FormControl(null, Validators.required),
-        accept:   new FormControl(false, Validators.required),
-
-      }
-  );
-
-  }
-=======
         rol:      new FormControl(null, Validators.required)
       });
->>>>>>> 21e8c9d6c9d3ffbf150172684c0d3f7e5573a3aa
 
   }
 
   cargarUsuarios() {
       this._userService.getUsers()
-        .subscribe( data => { this.user = data.user });
+        .subscribe( data => { this.user = data['user'] });
   }
   registerUser() {
+
 
 
     if (this.formUser.invalid) {
@@ -88,7 +69,7 @@ export class UsersComponent implements OnInit {
     );
 
     this._userService.createUser(usuario).subscribe( data => {
-      if (data.Ok === true) {
+      if (data['Ok']) {
         swal('Good Job', 'Usuario creado exitosamente', 'success');
       }
       this.formUser.reset();
@@ -99,7 +80,7 @@ export class UsersComponent implements OnInit {
 
   deleteUser(id: String) {
     this._userService.deleteUser(id).subscribe( data => {
-      if (data.Ok === true) {
+      if (data['Ok']) {
         swal('Good Job', 'Usuario eliminado exitosamente', 'success');
       }
       this.cargarUsuarios();
@@ -107,16 +88,5 @@ export class UsersComponent implements OnInit {
     });
     return;
   }
-<<<<<<< HEAD
-
-
-
-  }
-
-  agregarUsuario( usuario: any ) {
-    this._users.createUser( usuario );
-    this.router.navigate(['/dashboard']);
-  }
-=======
->>>>>>> 21e8c9d6c9d3ffbf150172684c0d3f7e5573a3aa
 }
+

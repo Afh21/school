@@ -13,15 +13,15 @@
     <form [formGroup]="formLogin" (ngSubmit)="loginUser()" autocomplete="off">
         <input 
         type="text" id="login" class="fadeIn second" 
-        formControlName="login" placeholder="Correo Electrónico">
+        formControlName="email" placeholder="Correo Electrónico">
         <input 
           type="password" id="password" class="fadeIn third" 
           formControlName="password" placeholder="contraseña">
       <input type="submit" class="fadeIn fourth" value="Iniciar Sesión">
       <div class="fieldsErrors" style="color: red;" >
-        <span *ngIf="formLogin.controls.login.errors?.email"> 
+        <span *ngIf="!!formLogin.controls['login']?.errors?.email"> 
           Correo invalido </span>
-        <span *ngIf="formLogin.controls.password.errors?.minlength"> 
+        <span *ngIf="!!formLogin.controls['password']?.errors?.minlength"> 
           Contraseña muy corta </span>
       
       </div>
