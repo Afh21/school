@@ -36,7 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         IndexComponent
      ],
     exports: [
-        DashboardComponent
+        DashboardComponent,
+        FormsModule,
+        ReactiveFormsModule
      ]
 
 })

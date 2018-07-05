@@ -1,3 +1,36 @@
-<p>
-  login works!
-</p>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Iniciar Sesión </h2>
+    <!-- <h2 class="inactive underlineHover">Registrarse </h2> -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="formLogin" (ngSubmit)="loginUser()" autocomplete="off">
+        <input 
+        type="text" id="login" class="fadeIn second" 
+        formControlName="login" placeholder="Correo Electrónico">
+        <input 
+          type="password" id="password" class="fadeIn third" 
+          formControlName="password" placeholder="contraseña">
+      <input type="submit" class="fadeIn fourth" value="Iniciar Sesión">
+      <div class="fieldsErrors" style="color: red;" >
+        <span *ngIf="formLogin.controls.login.errors?.email"> 
+          Correo invalido </span>
+        <span *ngIf="formLogin.controls.password.errors?.minlength"> 
+          Contraseña muy corta </span>
+      
+      </div>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">¿Olvidaste la cotraseña?</a>
+    </div>
+
+  </div>
+</div>
