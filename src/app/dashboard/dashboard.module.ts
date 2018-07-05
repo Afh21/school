@@ -12,9 +12,9 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/share.module';
 import { IndexComponent } from './index/index.component';
 
-import { HttpClientModule } from '@angular/common/http';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 
@@ -23,9 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         RouterModule,
         DASHBOARD_ROUTES,
         SharedModule,
-        HttpClientModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     declarations: [
         DashboardComponent,
