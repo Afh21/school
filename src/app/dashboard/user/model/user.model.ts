@@ -7,9 +7,8 @@ export class UserModel {
         public born:        string,
         public email:       string,
         public password:    string,
-        public role?:       string,
-        public accept?:     boolean,
-        public _id?:        string
+        public rol?:        string,
+        public accept?:     boolean
      ) { }
 
 }

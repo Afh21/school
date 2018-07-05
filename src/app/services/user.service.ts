@@ -8,37 +8,33 @@ import { UserModel } from '../dashboard/user/model/user.model';
 })
 export class UserService {
 
-  api: String = 'http://localhost:';
-  port: String = '3000';
-  service: String = '/dashboard/users';
-
+  api: any = 'http://localhost:3000/dashboard/users';
 
   constructor( public http: HttpClient ) { }
 
   getUsers() {
-    const url = `${this.api}${this.port}${this.service}`;
-    return this.http.get(url);
+    return this.http.get(this.api);
   }
 
   createUser(userData: UserModel) {
-    const url = `${this.api}${this.port}${this.service}`;
-    return this.http.post(url, userData);
+    // const url = `${this.api}${this.port}${this.service}`;
+    return this.http.post(this.api, userData);
 
   }
 
   getUser(userId: String) {
-    const url = `${this.api}${this.port}${this.service}/${userId}`;
-    return this.http.get(url);
+    // const url = `${this.api}${this.port}${this.service}/${userId}`;
+    // return this.http.get(this.api);
   }
 
   updateUser(userId: String, userData: UserModel ) {
-    const url = `${this.api}${this.port}${this.service}/${userId}`;
-    return this.http.put(url, userData );
+    // const url = `${this.api}${this.port}${this.service}/${userId}`;
+    // return this.http.put(url, userData );
   }
 
   deleteUser(userId: String) {
-    const url = `${this.api}${this.port}${this.service}/${userId}`;
-    return this.http.delete(url );
+    // const url = `${this.api}${this.port}${this.service}/${userId}`;
+    // return this.http.delete(url );
   }
 
 }
