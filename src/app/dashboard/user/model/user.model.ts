@@ -10,6 +10,7 @@ export class UserModel {
         public role?:       string,
         public accept?:     boolean,
         public _id?:        string
+
      ) { }
 
 }

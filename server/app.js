@@ -16,7 +16,7 @@ mongoose.connection.openUri('mongodb://localhost:27017/school',
 })
 
 // Middleware
-app.use(cors())
+app.use(cors({ origin: "http://localhost:4200", methods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], credentials: true }))
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
 app.use(morgan('combined'))
