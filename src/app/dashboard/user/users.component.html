@@ -10,12 +10,15 @@
       <div class="two fields">
         <div class="field">
           <div class="ui left icon input">     
-            <input type="text" formControlName="name" name="name" placeholder="Nombres completos" >
+
+            <input type="text" formControlName="name" name="name" placeholder="Nombres completos" required>
+
             <i class="users icon"></i>            
           </div>
         </div>  
 
         <div class="field">
+
           <div class="ui left icon input" ngClass="{'error': formUser.controls.lastname.invalid}">                 
              <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " >
             <i class="users icon"></i>
@@ -77,11 +80,13 @@
       </div>
     </div>
 
+
     <button class="ui button" type="submit" > Ok, Registrar </button>
   
   </form>
   
   <br>
   {{ formUser.value | json }}
+
 
 </div>

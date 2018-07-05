@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { UserService } from '../../services/user.service';
+
 import { Router } from '@angular/router';
 import { UserModel } from './model/user.model';
 
 import { UserService } from '../../services/user.service';
+
 import swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +18,9 @@ import swal from 'sweetalert2';
 export class UsersComponent implements OnInit {
 
   formUser: FormGroup;
+
   test: Array<any> = [ { code: 'm', name: 'Masculino'}, { code: 'f', name: 'Femenino' } ];
+
   rol:   Array<any> = [ { code: 'administrator', name: 'Administrador'}, { code: 'teacher', name: 'Instructor'} ];
 
   constructor(private _userService: UserService,
@@ -22,7 +28,9 @@ export class UsersComponent implements OnInit {
 
 
   ngOnInit() {
+
     this.formUser = new FormGroup({
+
         name:     new FormControl(null, Validators.required),
         lastname: new FormControl(null, Validators.required),
         genre:    new FormControl(null, Validators.required),
@@ -31,11 +39,15 @@ export class UsersComponent implements OnInit {
         password: new FormControl(null, Validators.required),
         rol:      new FormControl(null, Validators.required),
         accept:   new FormControl(false, Validators.required),
-      });
+
+      }
+  );
+
   }
 
 
   registerUser() {
+
 
     if (this.formUser.invalid) {
       swal('Bad Job', '¡Ups! Algo va mal, formulario inválido..!', 'error');
@@ -67,4 +79,12 @@ export class UsersComponent implements OnInit {
 
   }
 
+
+
+  }
+
+  agregarUsuario( usuario: any ) {
+    this._users.createUser( usuario );
+    this.router.navigate(['/dashboard']);
+  }
 }

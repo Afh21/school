@@ -12,9 +12,11 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/share.module';
 import { IndexComponent } from './index/index.component';
 
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
 
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule
+
     ],
     declarations: [
         DashboardComponent,
@@ -36,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
         IndexComponent
      ],
     exports: [
-        DashboardComponent
+        DashboardComponent,
+        FormsModule,
+        ReactiveFormsModule
      ]
 
 })

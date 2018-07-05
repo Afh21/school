@@ -8,11 +8,15 @@ import { UserModel } from '../dashboard/user/model/user.model';
 })
 export class UserService {
 
+
+
   api: any = 'http://localhost:3000/dashboard/users';
+
 
   constructor( public http: HttpClient ) { }
 
   getUsers() {
+
     return this.http.get(this.api);
   }
 
@@ -23,6 +27,7 @@ export class UserService {
   }
 
   getUser(userId: String) {
+
     // const url = `${this.api}${this.port}${this.service}/${userId}`;
     // return this.http.get(this.api);
   }
@@ -35,6 +40,7 @@ export class UserService {
   deleteUser(userId: String) {
     // const url = `${this.api}${this.port}${this.service}/${userId}`;
     // return this.http.delete(url );
+
   }
 
 }
