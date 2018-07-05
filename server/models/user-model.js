@@ -8,8 +8,7 @@ var userSchema  = new Schema({
     born:       { type: String, required: true },
     email:      { type: String, unique: true, required: true },
     password:   { type: String, required: true },
-    rol:        { type: String, enum: ['administrator', 'teacher'], default: 'teacher'},
-    accept:     { type: Boolean, default: false }
+    rol:        { type: String, enum: ['administrator', 'teacher'], default: 'teacher'}    
 }, { collection: 'users'})
 
 module.exports = mongoose.model('User', userSchema);
