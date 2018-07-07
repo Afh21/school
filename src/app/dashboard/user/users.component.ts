@@ -113,8 +113,7 @@ export class UsersComponent implements OnInit {
 
       console.log('Default Genre', this.usuarioDefaultGenre);
     });
-  }
-
+  } 
 
 
 }

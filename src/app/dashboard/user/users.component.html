@@ -35,7 +35,7 @@
       <button class="ui positive basic button" type="button" id="openModalCreateUser" > Ok, Crear un Usuario! </button>
 
 
-      <!-- User Create -->
+      <!-- User Create 
       <div class="ui modal" id="createUserModal">
           <div class="ui icon header">
             <i class="archive icon"></i>
@@ -115,7 +115,7 @@
             
             </form>
           </div>          
-      </div>
+      </div>-->
 
 
 
@@ -154,13 +154,11 @@
                 <div class="two fields">
                   <div class="field">
                       
-                      <ng-select [items]="test" >
-
-                      </ng-select>
-                      <!-- <select  [(ngModel)]="usuarioDefaultGenre" name="genre" class="ui search dropdown"> 
+                      <!-- <ng-select [items]="test" class="ui dropdown"> </ng-select>  -->
+                      <select  [(ngModel)]="usuarioDefaultGenre" name="genre" class="ui search dropdown"> 
                         <option value="">Genero</option>
                         <option *ngFor="let genres of test" [ngValue]="genres.code" [selected]="genres.code === usuarioDefaultGenre"> Genres: {{ genres.code  }} | User: {{ usuario.name }} </option>
-                      </select> -->
+                      </select> 
 
                   </div>                  
 
