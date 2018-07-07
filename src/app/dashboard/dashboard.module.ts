@@ -38,13 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
         IndexComponent
      ],
     exports: [
-<<<<<<< HEAD
-        DashboardComponent,
-        FormsModule,
-        ReactiveFormsModule
-=======
         DashboardComponent
->>>>>>> Afh21-master
      ]
 
 })

@@ -5,12 +5,9 @@ var bodyParser  = require('body-parser')
 var morgan      = require('morgan')
 var app         = express()
 
-<<<<<<< HEAD
-=======
 // Import Routes
 const userRoutes    = require('./routes/user-route')
 
->>>>>>> Afh21-master
 // Database
 mongoose.connection.openUri('mongodb://localhost:27017/school', 
 (error, response) => {
