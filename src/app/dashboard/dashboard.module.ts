@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/share.module';
 import { IndexComponent } from './index/index.component';
 
+import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
         SharedModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        NgSelectModule
     ],
     declarations: [
         DashboardComponent,

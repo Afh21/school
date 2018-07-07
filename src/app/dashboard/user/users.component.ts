@@ -5,7 +5,6 @@ import { UserModel } from './model/user.model';
 
 import { UserService } from '../../services/user.service';
 import swal from 'sweetalert2';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -19,9 +18,12 @@ export class UsersComponent implements OnInit {
   rol:  Array<any> = [ { code: 'administrator', name: 'Administrador'}, { code: 'teacher', name: 'Instructor'} ];
   user: Array<any>;
 
+  usuario: any = new UserModel('', '', '', '', '', '', '');
+  usuarioDefaultGenre: string ;
+
   constructor(private _userService: UserService,
               private router: Router) {
-            this.cargarUsuarios();
+              this.cargarUsuarios();
           }
 
   ngOnInit() {
@@ -36,24 +38,20 @@ export class UsersComponent implements OnInit {
         rol:      new FormControl(null, Validators.required)
       });
 
+
   }
 
   cargarUsuarios() {
       this._userService.getUsers()
-        .subscribe( data => { this.user = data.user });
+        .subscribe( data => { this.user = data.user; });
   }
+
   registerUser() {
 
     if (this.formUser.invalid) {
-      swal('Bad Job', '¡Ups! Algo va mal, formulario inválido..!', 'error');
+      swal('Bad Job', '¡Ups! Algo va mal, formulario inválido..!', 'error' );
       return;
     }
-
-    if (!this.formUser.value.accept) {
-      swal('Bad Job', '¡Debes aceptar las condiciones!', 'error');
-      return;
-    }
-
 
     const usuario = new UserModel(
       this.formUser.value.name,
@@ -70,19 +68,53 @@ export class UsersComponent implements OnInit {
         swal('Good Job', 'Usuario creado exitosamente', 'success');
       }
       this.formUser.reset();
-      this.router.navigate(['/dashboard/users']);
-    });
-  }
-
-
-  deleteUser(id: String) {
-    this._userService.deleteUser(id).subscribe( data => {
-      if (data.Ok === true) {
-        swal('Good Job', 'Usuario eliminado exitosamente', 'success');
-      }
       this.cargarUsuarios();
       this.router.navigate(['/dashboard/users']);
     });
+  }
+
+  deleteUser(user: UserModel) {
+    swal({
+      title: 'Cuidado',
+      text: '¿Quieres eliminar a ' + `${user.name}` ,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminalo!'
+    }).then((result) => {
+
+      if (result.value) {
+
+        this._userService.deleteUser(user._id).subscribe( data => {
+          if (data.Ok === true) {
+            swal('Good Job', 'Usuario eliminado exitosamente', 'success');
+          }
+          this.cargarUsuarios();
+          this.router.navigate(['/dashboard/users']);
+        });
+
+        swal(
+          'Eliminado!',
+          'El usuario fue eliminando exitosamente!.',
+          'success'
+        );
+      }
+    });
+
     return;
   }
+
+  updateUser(user: UserModel) {
+    this._userService.getUser(user._id).subscribe( data => {
+
+      this.usuario = data.user;
+      this.usuarioDefaultGenre = this.usuario.genre ; // Esto envía 'm' o 'f' a usuarioDefaultGenre      
+
+      console.log('Default Genre', this.usuarioDefaultGenre);
+    });
+  }
+
+
+
 }

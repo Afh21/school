@@ -3,6 +3,7 @@ const router = require('express').Router()
 const { 
 
     getUsers,
+    getUser,
     createUser,
     updateUser,
     deleteUser
@@ -11,6 +12,9 @@ const {
 
 // GET
 router.get('/', getUsers);
+
+// GET
+router.get('/:userId', getUser);
 
 // POST
 router.post('/', createUser);

@@ -8,10 +8,15 @@ $().ready(()=>{
     
     // Abrir el modal
     $('#openModalCreateUser').click( () =>{
-        $('.ui.modal').modal('show')        
+        $('#createUserModal').modal('show')        
+    });
+
+    $('#openModalUpdateUser').click( () =>{
+        $('#updateUserModal').modal('show')        
     });
 
     $('#closeModalCreateUser').click( ()=> {    
         $('.ui.modal').modal('hide')        
     })
+    
 })
