@@ -21,7 +21,6 @@ module.exports = {
         }
     },
 
-
     getUser: async (req, res) => {
         try {
             let { userId } = req.params;

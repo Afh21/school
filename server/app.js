@@ -5,9 +5,6 @@ var bodyParser  = require('body-parser')
 var morgan      = require('morgan')
 var app         = express()
 
-// Import Routes
-const userRoutes    = require('./routes/user-route')
-
 // Database
 mongoose.connection.openUri('mongodb://localhost:27017/school', 
 (error, response) => {
@@ -26,7 +23,7 @@ app.use(bodyParser.json())
 // app.use(morgan('combined'))
 
 // Import Routes
-const loginRoutes    = require('./routes/login')
+const loginRoutes   = require('./routes/login')
 const userRoutes    = require('./routes/user-route')
 
 // Routes
