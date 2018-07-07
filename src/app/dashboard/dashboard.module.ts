@@ -12,6 +12,10 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/share.module';
 import { IndexComponent } from './index/index.component';
 
+<<<<<<< HEAD
+=======
+import { NgSelectModule } from '@ng-select/ng-select';
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -25,7 +29,12 @@ import { HttpClientModule } from '@angular/common/http';
         SharedModule,
         FormsModule,
         ReactiveFormsModule,
+<<<<<<< HEAD
         HttpClientModule
+=======
+        HttpClientModule,
+        NgSelectModule
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
     ],
     declarations: [
         DashboardComponent,
@@ -36,9 +45,13 @@ import { HttpClientModule } from '@angular/common/http';
         IndexComponent
      ],
     exports: [
+<<<<<<< HEAD
         DashboardComponent,
         FormsModule,
         ReactiveFormsModule
+=======
+        DashboardComponent
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
      ]
 
 })

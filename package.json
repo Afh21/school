@@ -21,7 +21,11 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+<<<<<<< HEAD
     "bcrypt": "^2.0.1",
+=======
+    "@ng-select/ng-select": "^2.3.2",
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",

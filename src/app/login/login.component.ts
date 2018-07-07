@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
 
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
 
 @Component({
   selector: 'app-login',
@@ -12,6 +16,7 @@ import swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
+<<<<<<< HEAD
   formLogin: FormGroup;
 
   constructor(
@@ -51,4 +56,11 @@ export class LoginComponent implements OnInit {
 
   
 
+=======
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
 }

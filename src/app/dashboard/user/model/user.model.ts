@@ -8,7 +8,10 @@ export class UserModel {
         public email:       string,
         public password:    string,
         public rol?:        string,
+<<<<<<< HEAD
         public accept?:     boolean
+=======
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
      ) { }
 
 }

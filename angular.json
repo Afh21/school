@@ -20,13 +20,21 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+<<<<<<< HEAD
               "src/assets"
+=======
+              "src/assets"              
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
             ],
             "styles": [
               "src/styles.css"
             ],
+<<<<<<< HEAD
             "scripts": [
               
+=======
+            "scripts": [              
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
             ]
           },
           "configurations": {
