@@ -14,6 +14,12 @@ export class UserModel {
 
 =======
         public rol?:        string,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        public accept?:     boolean
+=======
+>>>>>>> Afh21-master
 >>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
      ) { }
 

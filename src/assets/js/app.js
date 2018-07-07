@@ -6,6 +6,7 @@ $().ready(()=>{
     // Dropdown
     $('.search.dropdown').dropdown();
     
+<<<<<<< HEAD
     // Abrir el modal
     $('#openModalCreateUser').click( () =>{
 <<<<<<< HEAD
@@ -16,6 +17,13 @@ $().ready(()=>{
         $('.ui.modal').modal('hide')        
     })
 =======
+=======
+<<<<<<< HEAD
+
+=======
+    // Abrir el modal
+    $('#openModalCreateUser').click( () =>{
+>>>>>>> Afh21-master
         $('#createUserModal').modal('show')        
     });
 

@@ -21,6 +21,11 @@ module.exports = {
         }
     },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Afh21-master
     getUser: async (req, res) => {
         try {
             let { userId } = req.params;
@@ -39,6 +44,10 @@ module.exports = {
         }
     },
 
+<<<<<<< HEAD
+=======
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
+>>>>>>> Afh21-master
     createUser: async (req, res) => {
         try {
             let body    = req.body;
