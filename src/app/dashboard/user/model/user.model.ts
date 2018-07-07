@@ -1,6 +1,7 @@
 export class UserModel {
 
     constructor(
+        
         public name:        string,
         public lastname:    string,
         public genre:       string,
@@ -8,7 +9,9 @@ export class UserModel {
         public email:       string,
         public password:    string,
         public rol?:        string,
-        public accept?:     boolean
+        public accept?:     boolean,
+        public _id?:        string,
+        public __v?:        string
 
      ) { }
 

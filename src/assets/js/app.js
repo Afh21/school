@@ -7,16 +7,14 @@ $().ready(()=>{
     $('.search.dropdown').dropdown();
     
     // Abrir el modal
-    $('#openModalCreateUser').click( () =>{
-        $('#createUserModal').modal('show')        
+/*
+    $('.openModalUser').click( () =>{
+        $('#UserModal').modal('show')        
     });
 
-    $('#openModalUpdateUser').click( () =>{
-        $('#updateUserModal').modal('show')        
-    });
 
     $('#closeModalCreateUser').click( ()=> {    
         $('.ui.modal').modal('hide')        
     })
-    
+    */
 })
