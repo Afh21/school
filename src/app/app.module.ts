@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginComponent } from './login/login.component';
 import { APP_ROUTES } from './app.routes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +16,8 @@ import { APP_ROUTES } from './app.routes';
   imports: [
     BrowserModule,
     DashboardModule,
+    FormsModule,
+    ReactiveFormsModule,
     APP_ROUTES
   ],
   providers: [

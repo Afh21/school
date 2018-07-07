@@ -5,9 +5,6 @@ var bodyParser  = require('body-parser')
 var morgan      = require('morgan')
 var app         = express()
 
-// Import Routes
-const userRoutes    = require('./routes/user-route')
-
 // Database
 mongoose.connection.openUri('mongodb://localhost:27017/school', 
 (error, response) => {
@@ -16,14 +13,23 @@ mongoose.connection.openUri('mongodb://localhost:27017/school',
 })
 
 // Middleware
-app.use(cors({ origin: "http://localhost:4200", methods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], credentials: true }))
+app.use(cors({ 
+    origin: "http://localhost:4200", 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+    credentials: true }))
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 
+// Import Routes
+const loginRoutes   = require('./routes/login')
+const userRoutes    = require('./routes/user-route')
 
 // Routes
+app.use('/login', loginRoutes);
 app.use('/dashboard/users', userRoutes);
+
 app.get('/', (req, res) => { res.send('Ok in index'); } )
 
 

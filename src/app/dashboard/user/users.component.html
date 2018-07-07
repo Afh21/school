@@ -1,207 +1,158 @@
 <br><br>
+<!-- table -->
 <div class="row">
-
-    <table class="ui celled table">
-        <thead>
-          <tr>
-            <th>Rol       </th>
-            <th>Nombres   </th>
-            <th>Apellidos </th>
-            <th>Email     </th>
-            <th>Fecha Nac.</th>
-            <th>Actions   </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let users of user">
-            <td>
-              <div class="ui ribbon success label" *ngIf="users.rol === 'administrator' ">  Administrador</div>
-              <div class="ui ribbon warning label" *ngIf="users.rol === 'teacher' ">        Profesor </div>
-            </td>
-            <td>{{ users.name }}</td>
-            <td>{{ users.lastname }}</td>
-            <td>{{ users.email }}</td>
-            <td>{{ users.born | date: ' d MMM, y' }}</td>
-            <td>
-              <div class="ui small basic icon buttons">
-                <button class="ui button" (click)="updateUser(users)" id="openModalUpdateUser"> <i class="pencil icon"></i> </button>
-                <button class="ui button" (click)="deleteUser(users)"> <i class="trash icon"></i>  </button>                
-              </div>
-            </td>            
-          </tr>          
-        </tbody>        
-      </table>
-
-      <button class="ui positive basic button" type="button" id="openModalCreateUser" > Ok, Crear un Usuario! </button>
-
-
-      <!-- User Create 
-      <div class="ui modal" id="createUserModal">
-          <div class="ui icon header">
-            <i class="archive icon"></i>
-            - Crear un Usuario -
-          </div>
-          <div class="content">
-              <form 
-              ngNativeValidate 
-              [formGroup]="formUser" (ngSubmit)="registerUser()"
-                class="ui form" >
-              <h4 class="ui dividing header"> - Usuarios - </h4>
-          
-              <div class="field">
-                <div class="two fields">
-                  <div class="field">
-                    <div class="ui left icon input">     
-                      <input type="text" formControlName="name" name="name" placeholder="Nombres completos" >
-                      <i class="users icon"></i>            
-                    </div>
-                  </div>  
-          
-                  <div class="field">
-                    <div class="ui left icon input" ngClass="{'error': formUser.controls.lastname.invalid}">                 
-                       <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " >
-                      <i class="users icon"></i>
-                    </div>
-                  </div>
+    
+      <table class="ui celled table">
+          <thead>
+            <tr>
+              <th>Rol       </th>
+              <th>Nombres   </th>
+              <th>Apellidos </th>
+              <th>Email     </th>
+              <th>Fecha Nac.</th>
+              <th>Actions   </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>
+                <div class="ui ribbon success label" *ngIf="user.rol === 'administrator' ">  Administrador</div>
+                <div class="ui ribbon warning label" *ngIf="user.rol === 'teacher' ">        Profesor </div>
+              </td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.lastname }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.born | date: ' d MMM, y' }}</td>
+              <td>
+                <div class="ui small basic icon buttons">
+                  <button class=" ui button openModalUser" (click)="prepareToEditUser(user)" >
+                    <i class="pencil icon">
+                    </i></button>
+                  <button class="ui button" (click)="deleteUser(user)"> <i class="trash icon"></i>  </button>                
                 </div>
-              </div>
-          
-              <div class="field">
-                <div class="two fields">
-                  <div class="field">
-                      <select class="ui search dropdown" formControlName="genre" name="genre"> 
-                        <option value="">Genero</option>
-                        <option *ngFor="let genres of test" [ngValue]="genres.code">{{genres.name}}</option>
-                      </select>
-                  </div>
-                
-                  <div class="field">        
-                    <div class="ui right labeled left icon input">    
-                      <i class="tags icon"></i>        
-                      <input type="date" formControlName="born" name="born" placeholder="Fecha de Nacimiento">
-                      <button type="button" class="ui tag label">
-                          años
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="field">
-                <div class="two fields">
-                    <div class="field">   
-                        <div class="ui left icon input">                           
-                          <input type="email" formControlName="email" name="email" placeholder="Email">
-                          <i class="users icon"></i>
-                        </div>
-                    </div>
-                    <div class="field">   
-                        <div class="ui left icon input">                        
-                          <input type="password" formControlName="password" name="password" placeholder="Contraseña">
-                          <i class="low vision icon"></i>
-                        </div>
-                    </div>
-                </div>
-              </div>
-          
-              <div class="field">                
-                <select class="ui search dropdown" formControlName="rol" name="rol">
-                  <option value="">Seleccione una opción </option>
-                  <option *ngFor="let roles of rol" [ngValue]="roles.code"> {{roles.name}} </option>
-                </select>        
-              </div>              
-          
-              <button class="ui button" type="submit" id="closeModalCreateUser"> Ok, Registrar </button>
-            
-            </form>
-          </div>          
-      </div>-->
-
-
-
-      <!-- User Update -->
-       <div class="ui modal" id="updateUserModal">
-          <div class="ui icon header">
-            <i class="archive icon"></i>
-            - Actualizar Usuario -
-          </div>
-          <div class="content">
-              <form 
-              ngNativeValidate 
-              #f = "ngForm" (ngSubmit)="updateUser(f)"
-                class="ui form" >
-              <h4 class="ui dividing header"> - Usuario - {{usuario.name}} {{usuario.lastname}} </h4>
-          
-              <div class="field">
-                <div class="two fields">
-                  <div class="field">
-                    <div class="ui left icon input">     
-                      <input type="text" [(ngModel)]="usuario.name" name="name"  placeholder="Nombres completos" >
-                      <i class="users icon"></i>            
-                    </div>
-                  </div>  
-          
-                  <div class="field">
-                    <div class="ui left icon input">                 
-                       <input type="text" [(ngModel)]="usuario.lastname" name="lastname"  placeholder="Apellidos Completos " >
-                      <i class="users icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="field">
-                <div class="two fields">
-                  <div class="field">
-                      
-                      <!-- <ng-select [items]="test" class="ui dropdown"> </ng-select>  -->
-                      <select  [(ngModel)]="usuarioDefaultGenre" name="genre" class="ui search dropdown"> 
-                        <option value="">Genero</option>
-                        <option *ngFor="let genres of test" [ngValue]="genres.code" [selected]="genres.code === usuarioDefaultGenre"> Genres: {{ genres.code  }} | User: {{ usuario.name }} </option>
-                      </select> 
-
-                  </div>                  
-
-                  <div class="field">        
-                    <div class="ui right labeled left icon input">    
-                      <i class="tags icon"></i>        
-                      <input type="date" [(ngModel)]="usuario.born" name="born" placeholder="Fecha de Nacimiento">
-                      <button type="button" class="ui tag label">
-                          años
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="field">
-                <div class="two fields">
-                    <div class="field">   
-                        <div class="ui left icon input">                           
-                          <input type="email" [(ngModel)]="usuario.email" name="email" placeholder="Email">
-                          <i class="users icon"></i>
-                        </div>
-                    </div>
-                    <div class="field">   
-                        <div class="ui left icon input">                        
-                          <input type="password"  placeholder="Contraseña" name="password">
-                          <i class="low vision icon"></i>
-                        </div>
-                    </div>
-                </div>
-              </div>
-          
-              <div class="field">                
-                <select [(ngModel)]="usuario" class="ui search dropdown" name="rol">
-                  <option value="">Seleccione una opción </option>
-                  <option *ngFor="let roles of rol" ngValue="{{roles.code}}" [selected]="roles.code === usuario.rol"> {{roles.name}} </option>
-                </select>        
-              </div>              
-          
-              <button class="ui button" type="submit" id="closeModalUpdateUser"> Ok, Registrar </button>
-            
-            </form>
-          </div>          
-      </div>
+              </td>            
+            </tr>          
+          </tbody>        
+      </table> 
+    
+ 
+    <button 
+      class="ui positive basic button openModalUser" 
+      (click)="prepareToCreateUser()" 
+      type="button"> Ok, Crear un Usuario! </button>
 
 </div>
+
+
+ <!-- User Modal -->
+ <div class="ui modal" id="UserModal">
+    <div  class="ui icon header">
+      <i class="archive icon"></i>
+      <div *ngIf="creating; else editing" >- Crear un Usuario -</div>
+      <ng-template #editing >- Editar un Usuario -</ng-template>  
+    </div>
+    <div class="content">
+        <form 
+          ngNativeValidate 
+          [formGroup]="formUser" (ngSubmit)="completeform()"
+          class="ui form" >
+        <h4 class="ui dividing header"> - Usuarios - </h4>
+    
+        <div class="field">
+          <div class="two fields">
+            <div class="field">
+              <div class="ui left icon input">     
+                <input type="text" formControlName="name" name="name" placeholder="Nombres completos" >
+                <i class="users icon"></i>            
+              </div>
+            </div>  
+    
+            <div class="field">
+              <div class="ui left icon input" ngClass="{'error': formUser.controls.lastname.invalid}">                 
+                 <input type="text" formControlName="lastname" name="lastname" placeholder="Apellidos Completos " >
+                <i class="users icon"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    
+        <div class="field">
+          <div class="two fields">
+            <div *ngIf="formUser.value.genre; else emptySelect" class="field">
+                <select class="ui search dropdown" formControlName="genre" name="genre"> 
+                  <option 
+                    *ngFor="let g of genres" 
+                    [ngValue]="g.code"
+                    selected="g.code === formUser.genre" >{{g.name}}</option>
+                </select>
+            </div>
+            <ng-template #emptySelect>
+            <div  class="field" >
+                <select class="ui search dropdown" formControlName="genre" name="genre"> 
+                  <option value="" >Selecione un genero</option>
+                  <option 
+                    *ngFor="let g of genres" 
+                    [ngValue]="g.code"
+                    >{{g.name}}</option>
+                </select>
+            </div >
+            </ng-template>
+            
+            <div class="field">        
+              <div class="ui right labeled left icon input">    
+                <i class="tags icon"></i>        
+                <input type="date" formControlName="born" name="born" placeholder="Fecha de Nacimiento">
+                <button type="button" class="ui tag label">
+                    años
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="field">
+          <div class="two fields">
+              <div class="field">   
+                  <div class="ui left icon input">                           
+                    <input type="email" formControlName="email" name="email" placeholder="Email">
+                    <i class="users icon"></i>
+                  </div>
+              </div>
+              <div class="field">   
+                  <div class="ui left icon input">                        
+                    <input type="password" formControlName="password" name="password" placeholder="Contraseña">
+                    <i class="low vision icon"></i>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div *ngIf="formUser.value.rol; else emptySelect2" class="field">
+            <select class="ui search dropdown" formControlName="rol" name="rol"> 
+              <option 
+                *ngFor="let r of rol" 
+                [ngValue]="r.code"
+                selected="r.code === formUser.rol" >{{r.name}}</option>
+            </select>
+        </div>
+        <ng-template #emptySelect2>
+            <div class="field">                
+                <select class="ui search dropdown" formControlName="rol" name="rol">
+                  <option value="">Seleccione un rol </option>
+                  <option *ngFor="let roles of rol" [ngValue]="roles.code"> {{roles.name}} </option>
+                </select>        
+
+              </div> 
+        </ng-template>
+                 
+        <button class="ui button" type="submit" id="closeModalCreateUser">
+           <div *ngIf="creating; else editingBtn"> Ok, Registrar </div> 
+           <ng-template #editingBtn> Ok, actualiar </ng-template> 
+        </button>
+      
+      </form>
+    </div>          
+</div>
+
+
