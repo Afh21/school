@@ -20,9 +20,18 @@ export class UsersComponent implements OnInit {
   rol:  Array<any> = [ { code: 'administrator', name: 'Administrador'}, { code: 'teacher', name: 'Instructor'} ];
   user: Array<any>;
 
+<<<<<<< HEAD
   constructor(private _userService: UserService,
               private router: Router) {
             this.cargarUsuarios();
+=======
+  usuario: any = new UserModel('', '', '', '', '', '', '');
+  usuarioDefaultGenre: string ;
+
+  constructor(private _userService: UserService,
+              private router: Router) {
+              this.cargarUsuarios();
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
           }
 
   ngOnInit() {
@@ -36,7 +45,17 @@ export class UsersComponent implements OnInit {
         password: new FormControl(null, Validators.required),
         rol:      new FormControl(null, Validators.required)
       });
+<<<<<<< HEAD
 
+=======
+
+
+  }
+
+  cargarUsuarios() {
+      this._userService.getUsers()
+        .subscribe( data => { this.user = data.user; });
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
   }
 
   cargarUsuarios() {
@@ -48,15 +67,9 @@ export class UsersComponent implements OnInit {
 
 
     if (this.formUser.invalid) {
-      swal('Bad Job', '¡Ups! Algo va mal, formulario inválido..!', 'error');
+      swal('Bad Job', '¡Ups! Algo va mal, formulario inválido..!', 'error' );
       return;
     }
-
-    if (!this.formUser.value.accept) {
-      swal('Bad Job', '¡Debes aceptar las condiciones!', 'error');
-      return;
-    }
-
 
     const usuario = new UserModel(
       this.formUser.value.name,
@@ -69,15 +82,52 @@ export class UsersComponent implements OnInit {
     );
 
     this._userService.createUser(usuario).subscribe( data => {
+<<<<<<< HEAD
       if (data['Ok']) {
         swal('Good Job', 'Usuario creado exitosamente', 'success');
       }
       this.formUser.reset();
+=======
+      if (data.Ok === true) {
+        swal('Good Job', 'Usuario creado exitosamente', 'success');
+      }
+      this.formUser.reset();
+      this.cargarUsuarios();
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
       this.router.navigate(['/dashboard/users']);
     });
   }
 
+  deleteUser(user: UserModel) {
+    swal({
+      title: 'Cuidado',
+      text: '¿Quieres eliminar a ' + `${user.name}` ,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminalo!'
+    }).then((result) => {
 
+      if (result.value) {
+
+        this._userService.deleteUser(user._id).subscribe( data => {
+          if (data.Ok === true) {
+            swal('Good Job', 'Usuario eliminado exitosamente', 'success');
+          }
+          this.cargarUsuarios();
+          this.router.navigate(['/dashboard/users']);
+        });
+
+        swal(
+          'Eliminado!',
+          'El usuario fue eliminando exitosamente!.',
+          'success'
+        );
+      }
+    });
+
+<<<<<<< HEAD
   deleteUser(id: String) {
     this._userService.deleteUser(id).subscribe( data => {
       if (data['Ok']) {
@@ -88,5 +138,22 @@ export class UsersComponent implements OnInit {
     });
     return;
   }
+=======
+    return;
+  }
+
+  updateUser(user: UserModel) {
+    this._userService.getUser(user._id).subscribe( data => {
+
+      this.usuario = data.user;
+      this.usuarioDefaultGenre = this.usuario.genre ; // Esto envía 'm' o 'f' a usuarioDefaultGenre      
+
+      console.log('Default Genre', this.usuarioDefaultGenre);
+    });
+  }
+
+
+
+>>>>>>> f891e9a6694d9cbc303db54d3bd55bf702a722b5
 }
 

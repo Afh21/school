@@ -21,6 +21,24 @@ module.exports = {
         }
     },
 
+    getUser: async (req, res) => {
+        try {
+            let { userId } = req.params;
+            let user = await UserModel.findById(userId)
+            res.status(200).json({
+                Ok:         true,
+                message:    'Congrats!, List successfully User - GET',
+                user:       user
+            })
+        } catch (error) {
+            res.status(400).json({
+                Ok:         false,
+                message:    'Ups!, It had ocurred an error User - GET',
+                error:      error
+            })
+        }
+    },
+
     createUser: async (req, res) => {
         try {
             let body    = req.body;
