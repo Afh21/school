@@ -43,6 +43,7 @@
 
 </div>
 
+
  <!-- User Modal -->
  <div class="ui modal" id="UserModal">
     <div  class="ui icon header">
@@ -72,6 +73,7 @@
                 <i class="users icon"></i>
               </div>
             </div>
+
           </div>
         </div>
     
@@ -140,6 +142,7 @@
                   <option value="">Seleccione un rol </option>
                   <option *ngFor="let roles of rol" [ngValue]="roles.code"> {{roles.name}} </option>
                 </select>        
+
               </div> 
         </ng-template>
                  
@@ -152,92 +155,4 @@
     </div>          
 </div>
 
-  <!-- User Update 
-       <div class="ui modal" id="updateUserModal">
-          <div class="ui icon header">
-            <i class="archive icon"></i>
-            - Actualizar Usuario -
-          </div>
-          <div class="content">
-              <form 
-              ngNativeValidate 
-              #f = "ngForm" (ngSubmit)="updateUser(f)"
-                class="ui form" >
-              <h4 class="ui dividing header"> - Usuario - {{usuario.name}} {{usuario.lastname}} </h4>
-          
-              <div class="field">
-                <div class="two fields">
-                  <div class="field">
-                    <div class="ui left icon input">     
-                      <input type="text" [(ngModel)]="usuario.name" name="name"  placeholder="Nombres completos" >
-                      <i class="users icon"></i>            
-                    </div>
-                  </div>  
-          
-                  <div class="field">
-                    <div class="ui left icon input">                 
-                       <input type="text" [(ngModel)]="usuario.lastname" name="lastname"  placeholder="Apellidos Completos " >
-                      <i class="users icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="field">
-                <div class="two fields">
-                  <div class="field">
-                    
-                    <select  
-                      [(ngModel)]="usuarioDefaultGenre" 
-                      name="genre" 
-                      class="ui search dropdown"> 
-                        <option value="">Genero</option>
-                        <option *ngFor="let genres of genres" 
-                          [ngValue]="genres.code" 
-                          [selected]="genres.code === usuarioDefaultGenre"> Genres: {{ genres.name  }} {{usuarioDefaultGenre}} </option>
-                    </select> 
-
-                  </div>                  
-
-                  <div class="field">        
-                    <div class="ui right labeled left icon input">    
-                      <i class="tags icon"></i>        
-                      <input type="date" [(ngModel)]="usuario.born" name="born" placeholder="Fecha de Nacimiento">
-                      <button type="button" class="ui tag label">
-                          años
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="field">
-                <div class="two fields">
-                    <div class="field">   
-                        <div class="ui left icon input">                           
-                          <input type="email" [(ngModel)]="usuario.email" name="email" placeholder="Email">
-                          <i class="users icon"></i>
-                        </div>
-                    </div>
-                    <div class="field">   
-                        <div class="ui left icon input">                        
-                          <input type="password"  placeholder="Contraseña" name="password">
-                          <i class="low vision icon"></i>
-                        </div>
-                    </div>
-                </div>
-              </div>
-          
-              <div class="field">                
-                <select [(ngModel)]="usuario" class="ui search dropdown" name="rol">
-                  <option value="">Seleccione una opción </option>
-                  <option *ngFor="let roles of rol" ngValue="{{roles.code}}" [selected]="roles.code === usuario.rol"> {{roles.name}} </option>
-                </select>        
-              </div>              
-          
-              <button class="ui button" type="submit" id="closeModalUpdateUser"> Ok, Registrar </button>
-            
-            </form>
-          </div>          
-      </div> -->
 

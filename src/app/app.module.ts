@@ -8,7 +8,6 @@ import { APP_ROUTES } from './app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

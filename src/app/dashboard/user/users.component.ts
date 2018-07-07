@@ -150,6 +150,7 @@ export class UsersComponent implements OnInit {
       this.cargarUsuarios();
       
     });
+
     
   }
 
@@ -164,6 +165,7 @@ export class UsersComponent implements OnInit {
     }
     $('#UserModal').modal('hide')
   }
+
 
 
   ngOnDestroy(): void {
